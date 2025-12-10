@@ -1,14 +1,32 @@
 import express from "express"
 import dotenv from "dotenv"
-
-const app = express();
-
-dotenv.config({path: "./config.env"})
-
+import { GoogleGenAI } from "@google/genai";
+dotenv.config({ path: "./config.env" })
 const port = process.env.PORT 
 
+const app = express();
 app.use(express.json());
-app.use(express.urlencoded({extended : true}))
+
+
+const genAI = new GoogleGenAI( {apiKey: process.env.GEMINI_API_KEY})
+async function callAI(question){
+    try{
+         const response = await genAI.models.generateContent({
+    model: "gemini-2.5-flash",
+    contents:`You are a friendly MERN developer guide. 
+Explain solutions clearly, give only relevant info, and avoid long paragraphs. 
+Keep your reply under 3 lines. 
+User asks: ${question}`
+
+
+  });
+  console.log(response.text);
+}catch(err){
+    console.log("error while calling gemini",err)
+}
+    }
+callAI("What is React useState?")
+
 
 
 app.listen(port, () =>{
