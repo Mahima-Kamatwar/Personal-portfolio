@@ -2,12 +2,11 @@ import React, { useState } from "react";
 
 const AdminLogin = () => {
   const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
+  const [password, setPassword] = useState("")
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    // later connect backend API here
-    console.log({ email, password });
+    console.log({ email, password })
   };
 
   return (
@@ -61,7 +60,7 @@ const AdminLogin = () => {
         </form>
       </div>
     </section>
-  );
-};
+  )
+}
 
-export default AdminLogin;
+export default AdminLogin

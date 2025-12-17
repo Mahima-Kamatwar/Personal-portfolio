@@ -3,7 +3,7 @@ import React from "react";
 const Home = () => {
   return (
     <>
-      {/* ================= NAVBAR ================= */}
+      {/* NAVBAR */}
       <nav className="fixed top-0 w-full bg-primary z-50">
         <div className="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
           <h1 className="text-light text-xl font-bold">MahimaDev</h1>
@@ -18,7 +18,7 @@ const Home = () => {
         </div>
       </nav>
 
-      {/* ================= HERO ================= */}
+      {/*  HERO  */}
       <section
         id="home"
         className="min-h-screen bg-accent flex items-center pt-24"
@@ -27,7 +27,7 @@ const Home = () => {
 
           <div className="bg-highlight p-8 md:p-10 rounded-xl shadow-lg">
             <h1 className="text-4xl md:text-5xl font-bold text-primary">
-              Hi, I’m Mahima
+              Hi, I'm Mahima
             </h1>
 
             <h2 className="text-xl md:text-2xl mt-4 text-secondary">
@@ -58,62 +58,60 @@ const Home = () => {
         </div>
       </section>
 
-      {/* ================= PROJECTS ================= */}
-      <section
-        id="projects"
-        className="min-h-screen bg-highlight flex items-center py-20"
-      >
-        <div className="max-w-7xl mx-auto px-6 w-full">
-          <h2 className="text-4xl font-bold text-center text-primary mb-12">
-            Featured Projects
-          </h2>
+      {/*  PROJECTS */}
+     <section
+  id="projects"
+  className="min-h-screen bg-highlight flex items-center py-20"
+>
+  <div className="max-w-7xl mx-auto px-6 w-full">
+    <h2 className="text-4xl font-bold text-center text-primary mb-12">
+      Featured Projects
+    </h2>
 
-          <div className="grid sm:grid-cols-2 md:grid-cols-3 gap-8">
-            {[
-              {
-                title: "Personal Portfolio Platform",
-                points: [
-                  "Admin login with JWT",
-                  "Dynamic project & gallery",
-                  "Multer media uploads",
-                ],
-              },
-              {
-                title: "E-Commerce Application",
-                points: [
-                  "Role-based authentication",
-                  "Product CRUD & images",
-                  "Cart & order tracking",
-                ],
-              },
-              {
-                title: "Media Gallery & Blog System",
-                points: [
-                  "Blog & media CRUD",
-                  "Optimized uploads",
-                  "MongoDB REST APIs",
-                ],
-              },
-            ].map((project, index) => (
-              <div
-                key={index}
-                className="bg-light border border-secondary p-6 rounded-xl shadow-sm hover:shadow-xl hover:-translate-y-1 transition"
-              >
-                <h3 className="text-xl font-semibold text-primary mb-4">
-                  {project.title}
-                </h3>
-                <ul className="list-disc list-inside text-sm text-secondary space-y-1">
-                  {project.points.map((p, i) => (
-                    <li key={i}>{p}</li>
-                  ))}
-                </ul>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
+    <div className="grid sm:grid-cols-2 md:grid-cols-3 gap-8">
 
-      {/* ================= TECHNICAL EXPERTISE ================= */}
+      {/* Project 1 */}
+      <div className="bg-light border border-secondary p-6 rounded-xl shadow-sm hover:shadow-xl hover:-translate-y-1 transition">
+        <h3 className="text-xl font-semibold text-primary mb-4">
+          Personal Portfolio Platform
+        </h3>
+        <ul className="list-disc list-inside text-sm text-secondary space-y-1">
+          <li>Admin login with JWT</li>
+          <li>Dynamic project & gallery</li>
+          <li>Multer media uploads</li>
+        </ul>
+      </div>
+
+      {/* Project 2 */}
+      <div className="bg-light border border-secondary p-6 rounded-xl shadow-sm hover:shadow-xl hover:-translate-y-1 transition">
+        <h3 className="text-xl font-semibold text-primary mb-4">
+          E-Commerce Application
+        </h3>
+        <ul className="list-disc list-inside text-sm text-secondary space-y-1">
+          <li>Role-based authentication</li>
+          <li>Product CRUD & images</li>
+          <li>Cart & order tracking</li>
+        </ul>
+      </div>
+
+      {/* Project 3 */}
+      <div className="bg-light border border-secondary p-6 rounded-xl shadow-sm hover:shadow-xl hover:-translate-y-1 transition">
+        <h3 className="text-xl font-semibold text-primary mb-4">
+          Media Gallery & Blog System
+        </h3>
+        <ul className="list-disc list-inside text-sm text-secondary space-y-1">
+          <li>Blog & media CRUD</li>
+          <li>Optimized uploads</li>
+          <li>MongoDB REST APIs</li>
+        </ul>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+      {/*  TECHNICAL EXPERTISE  */}
    <section
   id="expertise"
   className="min-h-screen bg-accent flex items-center py-20"
@@ -249,7 +247,7 @@ const Home = () => {
   </div>
 </section>
 
-      {/* ================= CONTACT ================= */}
+      {/* CONTACT  */}
       <section
         id="contact"
         className="min-h-screen bg-accent flex items-center py-20"
@@ -268,14 +266,14 @@ const Home = () => {
         </div>
       </section>
 
-      {/* ================= FOOTER ================= */}
+      {/*  FOOTER */}
       <footer className="bg-primary py-6 text-center">
         <p className="text-light">
           © 2025 Mahima Kamatwar | MERN Stack Developer
         </p>
       </footer>
     </>
-  );
-};
+  )
+}
 
-export default Home;
+export default Home

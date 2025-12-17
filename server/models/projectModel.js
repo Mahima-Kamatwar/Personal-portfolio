@@ -9,25 +9,12 @@ const projectSchema = new mongoose.Schema({
         type: String,
         required: true
     },
-    techStack: {
-        type: [String],
-        required: true
-    },
+   
     image: {
         type: String,
         required: true
-    },
-    githubLink: {
-        type: String,
-        default: "",
-    },
-    liveLink: {
-        type: String,
-        default: "",
-    },
-    // timeStamps: {
-    //     type: Date
-    // }
+    }
+  
 })
 
 let projectModel = mongoose.model("projects", projectSchema)
