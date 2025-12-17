@@ -1,0 +1,48 @@
+:root {
+  /* ===== PRIMARY PALETTE ===== */
+  --primary: #1B211A;      /* rgb(27, 33, 26) */
+  --secondary: #628141;    /* rgb(98, 129, 65) */
+  --accent: #8BAE66;       /* rgb(139, 174, 102) */
+  --highlight: #EBD5AB;    /* rgb(235, 213, 171) */
+
+  /* ===== SUPPORTING COLORS ===== */
+  --text-dark: #1B211A;
+  --text-light: #FFFFFF;
+  --border-soft: #D7C8A5;
+}
+/* ===== BACKGROUND ===== */
+.bg-primary { background-color: var(--primary); }
+.bg-secondary { background-color: var(--secondary); }
+.bg-accent { background-color: var(--accent); }
+.bg-highlight { background-color: var(--highlight); }
+
+/* ===== TEXT ===== */
+.text-primary { color: var(--primary); }
+.text-secondary { color: var(--secondary); }
+.text-accent { color: var(--accent); }
+.text-highlight { color: var(--highlight); }
+.text-dark { color: var(--text-dark); }
+.text-light { color: var(--text-light); }
+
+/* ===== BORDER ===== */
+.border-primary { border-color: var(--primary); }
+.border-secondary { border-color: var(--secondary); }
+.border-accent { border-color: var(--accent); }
+
+/* ===== HOVER ===== */
+.hover-bg-secondary:hover { background-color: var(--secondary); }
+.hover-bg-accent:hover { background-color: var(--accent); }
+.hover-text-secondary:hover { color: var(--secondary); }
+
+/* ===== BUTTON ===== */
+.btn-primary {
+  background-color: var(--secondary);
+  color: var(--text-light);
+  padding: 12px 24px;
+  border-radius: 8px;
+  transition: 0.3s ease;
+}
+
+.btn-primary:hover {
+  background-color: var(--primary);
+}
