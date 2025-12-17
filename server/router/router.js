@@ -1,7 +1,7 @@
 import express from "express"
-import { upload } from "../middelware/upload.js";
-
+import { upload } from "../middleware/upload.js";
 import {  uploadFile } from "../controller/controller.js"
+import { addProject, getAllProjects, deleteProject } from "../controller/projectController.js";
 
 const router = express.Router();
 
@@ -17,6 +17,12 @@ const router = express.Router();
 // })
 
 // Route for uploading file
-router.post("/upload", upload.single("file"), uploadFile)
+// router.post("/upload", upload.single("file"), uploadFile)
+router.get("/projects", getAllProjects)
 
-export {router}
+router.post("/addprojects", upload.single("image"), addProject)
+
+router.delete("/projects/:id", deleteProject);
+
+
+export default router;
