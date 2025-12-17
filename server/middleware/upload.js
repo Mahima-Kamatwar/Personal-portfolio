@@ -18,8 +18,8 @@ const fileFilter = (req, file, cb) => {
   }
 };
 
-// ✅ SINGLE upload middleware
+// SINGLE upload middleware
 const upload = multer({ storage, fileFilter });
 
-// ✅ EXPORT THIS ONLY
+//  EXPORT THIS ONLY
 export { upload };
