@@ -7,7 +7,7 @@ export const adminRegister = async (req, res) => {
   try {
     let { email, password } = req.body;
 
-    // ✅ clean email
+    
     email = email.trim().toLowerCase();
 
     const existingAdmin = await Admin.findOne({ email });
@@ -39,7 +39,7 @@ export const adminLogin = async (req, res) => {
   try {
     let { email, password } = req.body;
 
-    // ✅ clean email
+    // clean email
     email = email.trim().toLowerCase();
 
     const admin = await Admin.findOne({ email });
