@@ -1,9 +1,11 @@
 # Environment variables
 config.env
 .env
-
-# Optional: ignore all env files
 *.env
 
 # Node modules
 node_modules/
+
+# Build output
+dist/
+build/
