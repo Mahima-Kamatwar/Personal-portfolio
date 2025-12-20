@@ -5,7 +5,10 @@ import jwt from "jsonwebtoken";
 // REGISTER ADMIN (one time)
 export const adminRegister = async (req, res) => {
   try {
-    const { email, password } = req.body;
+    let { email, password } = req.body;
+
+    // ✅ clean email
+    email = email.trim().toLowerCase();
 
     const existingAdmin = await Admin.findOne({ email });
     if (existingAdmin) {
@@ -33,9 +36,12 @@ export const adminRegister = async (req, res) => {
 
 // LOGIN ADMIN
 export const adminLogin = async (req, res) => {
-  const { email, password } = req.body;
-
   try {
+    let { email, password } = req.body;
+
+    // ✅ clean email
+    email = email.trim().toLowerCase();
+
     const admin = await Admin.findOne({ email });
     if (!admin) {
       return res.status(401).json({ message: "Invalid email or password" });
@@ -48,7 +54,7 @@ export const adminLogin = async (req, res) => {
 
     const token = jwt.sign(
       { id: admin._id },
-      "SECRET_KEY",
+      process.env.JWT_SECRET,
       { expiresIn: "1d" }
     );
 

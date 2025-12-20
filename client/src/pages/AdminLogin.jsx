@@ -1,66 +1,88 @@
 import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
+import axios from "axios";
 
 const AdminLogin = () => {
   const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("")
+  const [password, setPassword] = useState("");
 
-  const handleSubmit = (e) => {
+  const navigate = useNavigate();
+
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    console.log({ email, password })
+
+    try {
+      const response = await axios.post(
+        "http://localhost:5000/api/admin/login",
+        {
+          email,
+          password,
+        }
+      );
+
+      // Save token
+      localStorage.setItem("adminToken", response.data.token);
+
+      alert(response.data.message); // shows "Login successful"
+
+      navigate("/");
+
+    } catch (error) {
+      // ✅ show REAL backend message
+      if (error.response && error.response.data.message) {
+        alert(error.response.data.message);
+      } else {
+        alert("Server not reachable");
+      }
+    }
   };
 
   return (
     <section className="min-h-screen bg-accent flex items-center justify-center px-4">
-      <div className="w-full max-w-md bg-highlight rounded-2xl shadow-xl p-8">
+      <div className="relative w-full max-w-md bg-highlight rounded-2xl shadow-xl p-8">
 
-        {/* Header */}
+        {/* Close Button */}
+        <button
+          onClick={() => navigate("/")}
+          className="absolute top-4 right-4 text-primary text-xl"
+        >
+          <i className="fa-solid fa-xmark"></i>
+        </button>
+
         <h2 className="text-3xl font-bold text-center text-primary mb-2">
           Admin Login
         </h2>
+
         <p className="text-center text-secondary mb-8">
           Login to access admin dashboard
         </p>
 
-        {/* Form */}
         <form onSubmit={handleSubmit} className="space-y-5">
 
-          {/* Email */}
-          <div>
-            <label className="block mb-1 font-medium">Email</label>
-            <input
-              type="email"
-              placeholder="admin@example.com"
-              value={email}
-              onChange={(e) => setEmail(e.target.value)}
-              className="w-full p-3 rounded-lg border focus:outline-none focus:ring-2 focus:ring-secondary"
-              required
-            />
-          </div>
+          <input
+            type="email"
+            placeholder="Email"
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
+            className="w-full p-3 rounded border"
+          />
 
-          {/* Password */}
-          <div>
-            <label className="block mb-1 font-medium">Password</label>
-            <input
-              type="password"
-              placeholder="••••••••"
-              value={password}
-              onChange={(e) => setPassword(e.target.value)}
-              className="w-full p-3 rounded-lg border focus:outline-none focus:ring-2 focus:ring-secondary"
-              required
-            />
-          </div>
+          <input
+            type="password"
+            placeholder="Password"
+            value={password}
+            onChange={(e) => setPassword(e.target.value)}
+            className="w-full p-3 rounded border"
+          />
 
-          {/* Button */}
-          <button
-            type="submit"
-            className="w-full bg-primary text-white py-3 rounded-lg hover:opacity-90 transition"
-          >
+          <button className="w-full bg-primary text-white py-3 rounded">
             Login
           </button>
+
         </form>
       </div>
     </section>
-  )
-}
+  );
+};
 
-export default AdminLogin
+export default AdminLogin;
