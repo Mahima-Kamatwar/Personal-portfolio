@@ -1,0 +1,7 @@
+# Ignore environment config files
+config.env
+.env
+*.env
+
+# Node dependencies
+node_modules/
