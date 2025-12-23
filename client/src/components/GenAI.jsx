@@ -1,11 +1,11 @@
 import { useState } from "react"
 import { useNavigate } from "react-router-dom"
-import { FaTimes } from "react-icons/fa";
+import { FaTimes } from "react-icons/fa"
 const GenAIChat = () => {
   const navigate = useNavigate();
 
-  const [question, setQuestion] = useState("");
-  const [answer, setAnswer] = useState("");
+  const [question, setQuestion] = useState("")
+  const [answer, setAnswer] = useState("")
 
   const askAI = async () => {
     if (question === "") return;

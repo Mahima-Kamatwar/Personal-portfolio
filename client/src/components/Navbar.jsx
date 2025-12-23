@@ -23,10 +23,12 @@ const Navbar = () => {
             </Link>
           </li>
          <li>
-  <a href="/genai" className="hover:text-accent">
+  <a href="/genai" className="border border-secondary px-4 py-1 rounded-full text-sm hover:bg-secondary hover:text-primary transition"
+            >
     GenAI
   </a>
 </li>
+
 
 
         </ul>
