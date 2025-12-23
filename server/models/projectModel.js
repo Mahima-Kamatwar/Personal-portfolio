@@ -1,22 +1,37 @@
-import mongoose from "mongoose"
+import mongoose from "mongoose";
 
-const projectSchema = new mongoose.Schema({
+const projectSchema = new mongoose.Schema(
+  {
     title: {
-        type: String,
-        required: true,
+      type: String,
+      required: true,
+      trim: true,
     },
+
     description: {
-        type: String,
-        required: true
+      type: String,
+      required: true,
     },
-   
+
+    techStack: {
+      type: [String], // ["React", "Node", "MongoDB"]
+      required: true,
+    },
+
     image: {
-        type: String,
-        required: true
-    }
-  
-})
+      type: String,
+      required: true,
+    },
 
-let projectModel = mongoose.model("projects", projectSchema)
+    githubLink: {
+      type: String,
+    },
 
-export { projectModel }
+    liveLink: {
+      type: String,
+    },
+  },
+  { timestamps: true }
+)
+
+export const projectModel = mongoose.model("Project", projectSchema)

@@ -3,7 +3,7 @@ import dotenv from "dotenv";
 import cors from "cors";
 import path from "path";
 
-// Load env FIRST
+// Load env 
 dotenv.config({ path: "./config.env" });
 
 // Database connection
@@ -31,11 +31,11 @@ app.use(express.urlencoded({ extended: true }));
 app.use("/uploads", express.static(path.join(process.cwd(), "uploads")));
 
 // API Routes
-app.use("/api/projects", projectRoutes);
+app.use("/api", projectRoutes);
 app.use("/api/admin", adminRoutes);
 
 // Other routes
-app.use("/", router);
+app.use("/api", router);
 
 // Server
 app.listen(port, () => {

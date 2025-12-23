@@ -14,12 +14,10 @@ const fileFilter = (req, file, cb) => {
   if (file.mimetype.startsWith("image/")) {
     cb(null, true);
   } else {
-    cb(new Error("Only image files allowed"), false);
+    cb(new Error("Only image files allowed"), false)
   }
 };
 
 // SINGLE upload middleware
-const upload = multer({ storage, fileFilter });
-
-//  EXPORT THIS ONLY
-export { upload };
+const upload = multer({ storage, fileFilter })
+export { upload }

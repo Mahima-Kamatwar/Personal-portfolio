@@ -1,28 +1,35 @@
-import express from "express"
+import express from "express";
 import { upload } from "../middleware/upload.js";
-import {  uploadFile } from "../controller/controller.js"
-import { addProject, getAllProjects, deleteProject } from "../controller/projectController.js";
+import { uploadFile } from "../controller/controller.js";
+import {
+  addProject,
+  getAllProjects,
+  deleteProject,
+} from "../controller/projectController.js";
+import { getResponse } from "../controller/controller.js";
 
 const router = express.Router();
 
-// router.get("/chat", async(req,res) => {
-//     try{
-//         const question = req.query.q || "What is AI";
-//         const answer = await getResponse(question);
-//         res.json({answer})
-//     }catch(err){
-//         console.log(err);
-//         res.status(500).json({ msg: "Internal server error" });
-//     }
-// })
+// ai chat routes
+router.get("/chat", async (req, res) => {
+  try {
+    const question = req.query.q || "What is MERN stack?";
+    const answer = await getResponse(question);
+    res.json({ answer });
+  } catch (err) {
+  console.error("CHAT ROUTE ERROR ", err);
+  res.status(500).json({
+    msg: "Internal server error",
+    error: err.message,
+  });
+}
+})
 
-// Route for uploading file
-// router.post("/upload", upload.single("file"), uploadFile)
-router.get("/projects", getAllProjects)
+// project routes
+router.get("/projects", getAllProjects);
 
-router.post("/addprojects", upload.single("image"), addProject)
+router.post("/addprojects", upload.single("image"), addProject);
 
 router.delete("/projects/:id", deleteProject);
-
 
 export default router;

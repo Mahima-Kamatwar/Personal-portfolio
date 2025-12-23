@@ -22,7 +22,12 @@ const Navbar = () => {
               Admin
             </Link>
           </li>
-         
+         <li>
+  <a href="/genai" className="hover:text-accent">
+    GenAI
+  </a>
+</li>
+
 
         </ul>
       </div>

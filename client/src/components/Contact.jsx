@@ -11,7 +11,7 @@ const Contact = () => {
 
  <p className="text-center text-dark mb-12 max-w-xl mx-auto">
       Have a project idea, collaboration opportunity, or just want to say hello?
-      Feel free to reach out — I’m always open to discussing new ideas and opportunities.
+      Feel free to reach out — I'm always open to discussing new ideas and opportunities.
     </p>
 
     {/* Contact Card */}
@@ -67,7 +67,7 @@ const Contact = () => {
 
       </div>
     </section>
-  );
-};
+  )
+}
 
-export default Contact;
+export default Contact
